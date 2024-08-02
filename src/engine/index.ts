@@ -14,7 +14,7 @@ export default class Engine extends React.Component<{
         switch(element.type) {
             default:
             children = Array.isArray(element.children)? element.children.map((el, index) => {
-                el.props.key = index;
+                el.props = { ...el.props, key: index };
                 return this.renderElement(el);
             }) : element.children;
             break;
