@@ -9,11 +9,14 @@ export default class Engine extends React.Component<{
 
     renderElement(element: DomElement): any {
         if (element.custom && !this.props.customs)
-            throw new Error("CustomElements is not passed to the engine");
+            throw new Error("CustomElements is not passed to the engin.e");
+        if (!element.key)
+            throw new Error("DomElement must have a key attribute.")
         let children;
         switch(element.type) {
             default:
             children = Array.isArray(element.children)? element.children.map((el, index) => {
+                if (!el) return null;
                 el.props = { ...el.props, key: index };
                 return this.renderElement(el);
             }) : element.children;
