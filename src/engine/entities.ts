@@ -4,9 +4,9 @@ export type DomElementType = "ELEMENT" | "MAP"
 export interface DomElement {
     type: DomElementType
     key: string;
-    custom?: boolean;
-    props?: Nullable;
-    data?: Nullable;
+    custom: boolean;
+    props: Nullable;
+    data: Nullable;
     children: Nullable<DomElement[] | string>;
 }
 
